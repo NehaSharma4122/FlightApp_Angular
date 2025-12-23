@@ -1,0 +1,54 @@
+<div class="search-header">
+  <div class="container">
+    <h1>Search Your Flight</h1>
+  </div>
+</div>
+
+<div class="container search-wrapper">
+  <!-- Search Panel with Dropdowns -->
+  <div class="search-panel">
+    <div class="search-form">
+      <!-- Origin Input -->
+      <div class="field autocomplete-container">
+        <label>Origin</label>
+        <input type="text" 
+              [(ngModel)]="searchData.fromName" 
+              (input)="onCitySearch($event, 'from')" 
+              placeholder="Type City (e.g. Delhi)">
+        
+        <ul class="suggestion-list" *ngIf="fromSuggestions.length > 0">
+          <li *ngFor="let city of fromSuggestions" (click)="selectCity(city, 'from')">
+            <strong>{{city.name}}</strong> <span>{{city.iataCode}}</span>
+            <small>{{city.address.countryName}}</small>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Destination Input -->
+      <div class="field autocomplete-container">
+        <label>Destination</label>
+        <input type="text" 
+              [(ngModel)]="searchData.toName" 
+              (input)="onCitySearch($event, 'to')" 
+              placeholder="Type City (e.g. Mumbai)">
+        
+        <ul class="suggestion-list" *ngIf="toSuggestions.length > 0">
+          <li *ngFor="let city of toSuggestions" (click)="selectCity(city, 'to')">
+            <strong>{{city.name}}</strong> <span>{{city.iataCode}}</span>
+            <small>{{city.address.countryName}}</small>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Date & Button -->
+      <div class="field">
+        <label>Date</label>
+        <input type="date" [(ngModel)]="searchData.date">
+      </div>
+
+      <div class="field action">
+        <button class="btn-search" (click)="onSearch()">FIND FLIGHTS</button>
+      </div>
+    </div>
+  </div>
+</div>

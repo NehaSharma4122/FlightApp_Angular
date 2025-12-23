@@ -1,0 +1,20 @@
+<nav class="navbar">
+  <div class="container nav-content">
+    <div class="namelogo">
+      <img src="https://t3.ftcdn.net/jpg/02/15/51/76/240_F_215517687_MLMCHbyaOb5z8OBffOUw6ASwXDTfjV5v.jpg" alt="">
+      <div class="logo" routerLink="/">AIR WORLD</div>
+    </div>
+    <div class="nav-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a routerLink="/search" routerLinkActive="active">Search Flights</a>
+
+      @if (!auth.currentUser()) {
+        <a routerLink="/login">Login</a>
+        <a routerLink="/register" class="btn-gold">Register</a>
+      } @else {
+        <a routerLink="/dashboard">My Dashboard</a>
+        <button (click)="auth.logout()" class="logout-btn">Logout</button>
+      }
+    </div>
+  </div>
+</nav>

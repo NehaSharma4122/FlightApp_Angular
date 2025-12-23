@@ -1,0 +1,66 @@
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.auth-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    width: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: var(--ai-red);
+    margin-top: 0;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+.full-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.switch {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.btn-primary-full {
+    width: 100%;
+    background-color: var(--ai-red);
+    color: white;
+    border: none;
+    padding: 14px;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+.btn-primary-full:hover {
+    background-color: var(--ai-darkpurple);
+    transform: translateY(-10px);
+
+}
+.footer-links {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 17px;
+}
+
+.footer-links a {
+    color: var(--ai-red);
+    text-decoration: none;
+    font-weight: bold;
+}

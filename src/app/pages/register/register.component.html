@@ -1,0 +1,32 @@
+<div class="register-wrapper">
+  <div class="register-card">
+    <div class="header">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Airworld_logo.png" alt="Air India">
+      <h2>Create Account</h2>
+      <p>Join Flying Returns and earn points on every flight.</p>
+    </div>
+
+    <form (ngSubmit)="onRegister()">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" [(ngModel)]="regData.name" name="name" placeholder="Rahul Sharma" required>
+      </div>
+
+      <div class="form-group">
+        <label>Email ID</label>
+        <input type="email" [(ngModel)]="regData.email" name="email" placeholder="example@mail.com" required>
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" [(ngModel)]="regData.password" name="password" placeholder="Min 8 characters" required>
+      </div>
+
+      <button type="submit" class="btn-primary-full">REGISTER NOW</button>
+    </form>
+
+    <div class="footer-links">
+      Already have an account? <a routerLink="/login">Login here</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+:root {
+  --ai-red: #730c92;
+  --ai-gold: #469ec7;
+  --ai-dark: #333333;
+  --ai-light: #f8f9fa;
+  --ai-white: #ffffff;
+  --ai-darkpurple:#5e0470;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: var(--ai-light);
+  font-size: 18px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Common Button Styles */
+.btn-primary {
+  background-color: var(--ai-red);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  /* transition: background 0.3s; */
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  transform: translateY(-10px);
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
