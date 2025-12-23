@@ -43,18 +43,21 @@ export class SearchFlightsComponent {
         else this.toSuggestions = res.data;
       });
     }
+    else{
+      this.fromSuggestions=[]
+      this.toSuggestions=[]
+    }
   }
 
-  // When user clicks a suggestion
   selectCity(city: any, type: 'from' | 'to') {
     if (type === 'from') {
       this.searchData.from = city.iataCode;
       this.searchData.fromName = `${city.name} (${city.iataCode})`;
-      this.fromSuggestions = []; // Clear dropdown
+      this.fromSuggestions = []; 
     } else {
       this.searchData.to = city.iataCode;
       this.searchData.toName = `${city.name} (${city.iataCode})`;
-      this.toSuggestions = []; // Clear dropdown
+      this.toSuggestions = []; 
     }
   }
 

@@ -4,18 +4,14 @@
   </div>
 </div>
 
-<div class="container search-wrapper">
-  <!-- Search Panel with Dropdowns -->
+<!-- Added margin-bottom directly to this wrapper to ensure gap even without results -->
+<div class="container search-wrapper" style="margin-bottom: 100px;">
+  
   <div class="search-panel">
     <div class="search-form">
-      <!-- Origin Input -->
       <div class="field autocomplete-container">
         <label>Origin</label>
-        <input type="text" 
-              [(ngModel)]="searchData.fromName" 
-              (input)="onCitySearch($event, 'from')" 
-              placeholder="Type City (e.g. Delhi)">
-        
+        <input type="text" [(ngModel)]="searchData.fromName" (input)="onCitySearch($event, 'from')" placeholder="Type City (e.g. Delhi)">
         <ul class="suggestion-list" *ngIf="fromSuggestions.length > 0">
           <li *ngFor="let city of fromSuggestions" (click)="selectCity(city, 'from')">
             <strong>{{city.name}}</strong> <span>{{city.iataCode}}</span>
@@ -24,14 +20,9 @@
         </ul>
       </div>
 
-      <!-- Destination Input -->
       <div class="field autocomplete-container">
         <label>Destination</label>
-        <input type="text" 
-              [(ngModel)]="searchData.toName" 
-              (input)="onCitySearch($event, 'to')" 
-              placeholder="Type City (e.g. Mumbai)">
-        
+        <input type="text" [(ngModel)]="searchData.toName" (input)="onCitySearch($event, 'to')" placeholder="Type City (e.g. Mumbai)">
         <ul class="suggestion-list" *ngIf="toSuggestions.length > 0">
           <li *ngFor="let city of toSuggestions" (click)="selectCity(city, 'to')">
             <strong>{{city.name}}</strong> <span>{{city.iataCode}}</span>
@@ -40,7 +31,6 @@
         </ul>
       </div>
 
-      <!-- Date & Button -->
       <div class="field">
         <label>Date</label>
         <input type="date" [(ngModel)]="searchData.date">
@@ -48,6 +38,37 @@
 
       <div class="field action">
         <button class="btn-search" (click)="onSearch()">FIND FLIGHTS</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flight Results Section -->
+  <div class="results-container" *ngIf="flights.length > 0">
+    <div class="flight-card" *ngFor="let f of flights">
+      <div class="f-logo">
+        <img src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-designs_343694-2506.jpg" alt="Logo">
+      </div>
+
+      <div class="f-time">
+        <p class="date-label">{{ f.itineraries[0].segments[0].departure.at | date:'EEE, dd MMM' }}</p>
+        <p class="time-main">{{ f.itineraries[0].segments[0].departure.at | date:'shortTime' }}</p>
+        <p class="city-code">{{ searchData.from }}</p>
+      </div>
+
+      <div class="f-duration">
+        <span>Non-stop</span>
+        <div class="line"></div>
+      </div>
+
+      <div class="f-time">
+        <p class="date-label">{{ f.itineraries[0].segments[0].arrival.at | date:'EEE, dd MMM' }}</p>
+        <p class="time-main">{{ f.itineraries[0].segments[0].arrival.at | date:'shortTime' }}</p>
+        <p class="city-code">{{ searchData.to }}</p>
+      </div>
+
+      <div class="f-price">
+        <p class="price">₹ {{ (f.price.total*105.70).toFixed(0) }}</p>
+        <button class="btn-primary" (click)="bookFlight(f)">Book Now</button>
       </div>
     </div>
   </div>

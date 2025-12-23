@@ -7,8 +7,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent }, // Luxury Landing Page
-  { path: 'search', component: SearchFlightsComponent }, // Separate Search Page
+  { path: '', component: HomeComponent }, 
+  { path: 'search', component: SearchFlightsComponent }, 
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
